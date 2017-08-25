@@ -117,6 +117,38 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+/**
+ *  设置删除按钮
+ *
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        ProjectModel *model = self.datalist[indexPath.row];
+        NSString *name = model.name;
+        // 获取默认的 Realm 实例
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        // 通过事务将数据添加到 Realm 中
+        [realm beginWriteTransaction];
+        [realm deleteObject:model];
+        [realm commitWriteTransaction];
+        
+        RLMResults *detailModels = [DetailModel allObjects];
+        NSInteger count = detailModels.count;
+        for (int i=0; i<count; i++) {
+            //删除多个要从后往前删，否则数量变化导致删除出错
+            DetailModel *detailModel = detailModels[count-1-i];
+            if ([detailModel.projectName isEqualToString: name]) {
+                [realm beginWriteTransaction];
+                [realm deleteObject:detailModel];
+                [realm commitWriteTransaction];
+            }
+        }
+        
+        [self.datalist removeObjectAtIndex:indexPath.row];
+        [self.myTable reloadData];
+    }
+}
+
 - (void)setNetData {
     if (self.pageCount == 1) {
         [self.datalist removeAllObjects];

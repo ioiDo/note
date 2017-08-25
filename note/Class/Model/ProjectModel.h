@@ -22,5 +22,3 @@
 @property RLMArray<DetailModel *><DetailModel> *detailModels;
 
 @end
-
-RLM_ARRAY_TYPE(ProjectModel) // 定义RLMArray<ProjectModel>

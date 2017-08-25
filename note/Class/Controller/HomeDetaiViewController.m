@@ -43,7 +43,7 @@
     self.data = [NSMutableArray array];
     for (NSInteger i=0; i<detailModels.count; i++) {
         DetailModel *model = detailModels[i];
-        if ([model.projectModel.name isEqualToString: self.projectModel.name]) {
+        if ([model.projectName isEqualToString: self.projectModel.name]) {
             [self.data addObject:model];
         }
     }
@@ -119,7 +119,7 @@
     xlSheetWriteStr(sheet, 1, 4, "日期", 0);
     for (int i=0; i<self.data.count; i++) {
         DetailModel *model = self.data[i];
-        const char *name_c = [model.projectModel.name cStringUsingEncoding:NSUTF8StringEncoding];
+        const char *name_c = [model.projectName cStringUsingEncoding:NSUTF8StringEncoding];
         xlSheetWriteStr(sheet, i+2, 0,name_c, 0);
         const char *money_c = [model.money cStringUsingEncoding:NSUTF8StringEncoding];
         xlSheetWriteStr(sheet, i+2, 1,money_c, 0);
@@ -134,7 +134,7 @@
     NSString *documentPath =
     [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0];
 //    NSString *fname = [@"data" stringByAppendingString:@".xls"];
-    NSString *fname = [NSString stringWithFormat:@"%@.xls",((DetailModel *)self.data[0]).projectModel.name];
+    NSString *fname = [NSString stringWithFormat:@"%@.xls",((DetailModel *)self.data[0]).projectName];
     NSString *filename = [documentPath stringByAppendingPathComponent:fname];
     // 输出路径
     NSLog(@"filepath:%@",filename);
@@ -195,6 +195,25 @@
     }
     cell.detailModel = self.datalist[indexPath.row];
     return cell;
+}
+
+/**
+ *  设置删除按钮
+ *
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        DetailModel *model = self.datalist[indexPath.row];
+        // 获取默认的 Realm 实例
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        // 通过事务将数据添加到 Realm 中
+        [realm beginWriteTransaction];
+        [realm deleteObject:model];
+        [realm commitWriteTransaction];
+        
+        [self.datalist removeObjectAtIndex:indexPath.row];
+        [self.myTable reloadData];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

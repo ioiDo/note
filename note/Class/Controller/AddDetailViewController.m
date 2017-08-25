@@ -83,7 +83,7 @@
     }else{
         model.category = @"3";
     }
-    model.projectModel = self.projectModel;
+    model.projectName = self.projectModel.name;
     model.dateTime = self.dateTF.text;
     model.note = self.notePTV.text;
     // 获取默认的 Realm 实例

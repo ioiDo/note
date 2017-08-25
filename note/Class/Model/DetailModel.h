@@ -7,9 +7,6 @@
 //
 
 #import "BaseModel.h"
-#import "ProjectModel.h"
-
-@class ProjectModel;
 
 @interface DetailModel : BaseModel
 
@@ -18,7 +15,7 @@
 @property NSString *category;
 @property NSString *dateTime;
 @property NSString *note;
-@property ProjectModel *projectModel;
+@property NSString *projectName;
 
 @end
 

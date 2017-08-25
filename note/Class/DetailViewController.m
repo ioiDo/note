@@ -112,6 +112,25 @@
     return cell;
 }
 
+/**
+ *  设置删除按钮
+ *
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        DetailModel *model = self.datalist[indexPath.row];
+        // 获取默认的 Realm 实例
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        // 通过事务将数据添加到 Realm 中
+        [realm beginWriteTransaction];
+        [realm deleteObject:model];
+        [realm commitWriteTransaction];
+        
+        [self.datalist removeObjectAtIndex:indexPath.row];
+        [self.myTable reloadData];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    HomeDetaiViewController *vc = [[HomeDetaiViewController alloc] init];
 //    [self.navigationController pushViewController:vc animated:YES];

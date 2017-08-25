@@ -291,7 +291,7 @@
                             <rect key="frame" x="91" y="7" width="274" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                         </textField>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJK-iv-OfY">
                             <rect key="frame" x="0.0" y="43" width="375" height="1"/>

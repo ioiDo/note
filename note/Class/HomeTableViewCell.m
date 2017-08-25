@@ -38,9 +38,9 @@
 - (void)setDetailModel:(DetailModel *)detailModel {
     self.stateLab.hidden = YES;
     _detailModel = detailModel;
-    self.projectName.text = [NSString stringWithFormat:@"%@",_detailModel.projectModel.name];
+    self.projectName.text = [NSString stringWithFormat:@"%@",_detailModel.projectName];
     self.firstPart.text = [NSString stringWithFormat:@"金额：%@",_detailModel.money];
-    self.labR1.text = [NSString stringWithFormat:@"类别：%@",[SwitchType orderStateFromType:_detailModel.category]];
+    self.labR1.text = [NSString stringWithFormat:@"类别：%@",[SwitchType detailCategoryFromType:_detailModel.category]];
     self.money.text = [NSString stringWithFormat:@"备注：%@",_detailModel.note];
     self.time.text = [NSString stringWithFormat:@"%@",_detailModel.dateTime];
 }
