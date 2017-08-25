@@ -1,0 +1,117 @@
+//
+//  PrefixHeader.pch
+//  note
+//
+//  Created by apple on 2017/8/22.
+//  Copyright © 2017年 apple. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Masonry/Masonry.h>
+#import "MJRefresh.h"
+#import "BaseViewController.h"
+#import <Realm/Realm.h>
+#import "ProjectModel.h"
+#import "DetailModel.h"
+#import "NSArray+Safe.h"
+#import "SwitchType.h"
+#import "MBProgressHUD.h"
+#import "APPHelp.h"
+
+
+/**
+ *  获取mainScreen的bounds
+ */
+#define kScreenBounds [[UIScreen mainScreen] bounds]
+#define kScreenWidth kScreenBounds.size.width
+#define kScreenHeight kScreenBounds.size.height
+
+
+
+#pragma mark -  * * * * * * * * * * * * * * 主题 * * * * * * * * * * * * * *
+//十六进制颜色
+#define UIColorFromRGBValue(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define kRGB(R,G,B) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1]
+#define kRGB_alpha(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+
+/**
+ 默认白色
+ */
+#define kColorWhite UIColorFromRGBValue(0Xffffff)
+#define kColorFF UIColorFromRGBValue(0Xffffff)
+
+/**
+ 页面底色-浅灰
+ */
+#define kColorBackView UIColorFromRGBValue(0Xf4f5f7)
+#define kColorF4 UIColorFromRGBValue(0Xf4f5f7)
+
+/**
+ 页面底色-浅灰2
+ */
+#define kColorBack2 UIColorFromRGBValue(0Xcccccc)
+#define kColorCC UIColorFromRGBValue(0Xcccccc)
+
+/**
+ 分割线颜色1-浅灰
+ */
+#define kColorLine1 UIColorFromRGBValue(0Xeeeeee)
+#define kColorEE UIColorFromRGBValue(0Xeeeeee)
+
+
+/**
+ 分割线颜色2-浅灰
+ */
+#define kColorLine2 UIColorFromRGBValue(0Xe5e5e5)
+#define kColorE5 UIColorFromRGBValue(0Xe5e5e5)
+
+
+/**
+ 默认主色调-浅蓝色
+ */
+#define kColorMain UIColorFromRGBValue(0X77bdf4)
+
+/**
+ tabbar背景色-浅灰色
+ */
+#define kColorTabbarViewBack UIColorFromRGBValue(0Xf7f7f7)
+#define kColorTabbarF7 UIColorFromRGBValue(0Xf7f7f7)
+
+/**
+ 主要字体颜色
+ */
+#define kMainFontColor UIColorFromRGBValue(0X333333)
+#define kColor33 UIColorFromRGBValue(0X333333)
+
+/**
+ 字体颜色-灰2
+ */
+#define kFontColor2 UIColorFromRGBValue(0X999999)
+#define kColor99 UIColorFromRGBValue(0X999999)
+
+/**
+ 字体颜色-灰3
+ */
+#define kFontColor3 UIColorFromRGBValue(0X666666)
+#define kColor66 UIColorFromRGBValue(0X666666)
+
+/**
+ 字体颜色-
+ */
+#define kMainOrange UIColorFromRGBValue(0Xe96b1e)
+#define kColorE96 UIColorFromRGBValue(0Xe96b1e)
+
+/**
+ 社区警情btn颜色
+ */
+//蓝色
+#define kBtnTitleColor1 UIColorFromRGBValue(0X1e72e9)
+#define KBtnBorderColor1 UIColorFromRGBValue(0Xb2d3ff)
+//红色
+#define kBtnTitleColor2 UIColorFromRGBValue(0Xe96b1e)
+#define KBtnBorderColor2 UIColorFromRGBValue(0Xffd0b2)
+
+#endif /* PrefixHeader_pch */
