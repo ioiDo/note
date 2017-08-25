@@ -14,7 +14,7 @@
 #include "LibXL/libxl.h"
 
 
-@interface HomeDetaiViewController ()<UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate> {
+@interface HomeDetaiViewController ()<UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate> {
     RLMResults<DetailModel *> *detailModels;
 }
 @property (strong, nonatomic) IBOutlet UIView *headView;
@@ -59,6 +59,13 @@
     }];
     [self rightItem];
     [self initAddBtn];
+    self.myTable.emptyDataSetSource = self;
+    self.myTable.emptyDataSetDelegate = self;
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"empty_placeholder"];
 }
 
 

@@ -11,7 +11,7 @@
 #import "HomeDetaiViewController.h"
 #import "AddViewController.h"
 
-@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource> {
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate> {
     RLMResults<ProjectModel *> *projects;
 }
 @property (strong, nonatomic) IBOutlet UIView *headView;
@@ -52,6 +52,13 @@
         make.bottom.equalTo(@(-49));
     }];
     [self rightItem];
+    self.myTable.emptyDataSetSource = self;
+    self.myTable.emptyDataSetDelegate = self;
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"empty_placeholder"];
 }
 
 - (void)rightItem {

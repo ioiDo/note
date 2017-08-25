@@ -33,25 +33,27 @@
                     <state key="normal" title="筛选"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pt-c4-dgI">
-                    <rect key="frame" x="62" y="11" width="46" height="30"/>
+                    <rect key="frame" x="62" y="11" width="35" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="OXq-Cg-fvz"/>
+                        <constraint firstAttribute="width" constant="35" id="OXq-Cg-fvz"/>
                     </constraints>
-                    <state key="normal" title="预算"/>
+                    <state key="normal" title="时间"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06E-Id-GGN">
-                    <rect key="frame" x="109" y="11" width="5" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06E-Id-GGN">
+                    <rect key="frame" x="95" y="18.5" width="10" height="15"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="5" id="EDL-Z4-zwh"/>
+                        <constraint firstAttribute="width" constant="10" id="EDL-Z4-zwh"/>
+                        <constraint firstAttribute="height" constant="15" id="k7F-0O-LMN"/>
                     </constraints>
-                    <state key="normal" title="1"/>
+                    <state key="normal" title="1" image="ic_to_up"/>
+                    <state key="selected" image="ic_to_down"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUM-P7-CxW">
-                    <rect key="frame" x="122" y="11" width="46" height="30"/>
+                    <rect key="frame" x="109" y="11" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="rY3-PZ-MhU"/>
                     </constraints>
-                    <state key="normal" title="预算"/>
+                    <state key="normal" title="时间"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-01-01~2017-08-23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-ch-aHt">
                     <rect key="frame" x="174" y="16" width="191" height="21"/>
@@ -69,12 +71,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="TUM-P7-CxW" firstAttribute="leading" secondItem="06E-Id-GGN" secondAttribute="trailing" constant="8" id="0nm-3b-5A8"/>
+                <constraint firstItem="TUM-P7-CxW" firstAttribute="leading" secondItem="06E-Id-GGN" secondAttribute="trailing" constant="4" id="0nm-3b-5A8"/>
                 <constraint firstItem="TUM-P7-CxW" firstAttribute="centerY" secondItem="dL6-36-xja" secondAttribute="centerY" id="53J-kn-0jz"/>
                 <constraint firstItem="06E-Id-GGN" firstAttribute="centerY" secondItem="dL6-36-xja" secondAttribute="centerY" id="6tY-h4-ByC"/>
                 <constraint firstItem="Hdr-Kg-Ia5" firstAttribute="leading" secondItem="dL6-36-xja" secondAttribute="leading" constant="10" id="FaD-Af-kgR"/>
                 <constraint firstAttribute="trailing" secondItem="SKM-SF-O6n" secondAttribute="trailing" id="HMQ-25-NTM"/>
-                <constraint firstItem="06E-Id-GGN" firstAttribute="leading" secondItem="3Pt-c4-dgI" secondAttribute="trailing" constant="1" id="RaM-e2-AxS"/>
+                <constraint firstItem="06E-Id-GGN" firstAttribute="leading" secondItem="3Pt-c4-dgI" secondAttribute="trailing" constant="-2" id="RaM-e2-AxS"/>
                 <constraint firstAttribute="bottom" secondItem="SKM-SF-O6n" secondAttribute="bottom" id="X6K-Qc-z7Z"/>
                 <constraint firstItem="SKM-SF-O6n" firstAttribute="leading" secondItem="dL6-36-xja" secondAttribute="leading" id="bsF-zP-YHx"/>
                 <constraint firstItem="Hdr-Kg-Ia5" firstAttribute="centerY" secondItem="dL6-36-xja" secondAttribute="centerY" id="g6N-YX-yEB"/>
@@ -88,4 +90,8 @@
             <point key="canvasLocation" x="-442.5" y="-259.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_to_down" width="18" height="18"/>
+        <image name="ic_to_up" width="18" height="18"/>
+    </resources>
 </document>
