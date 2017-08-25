@@ -37,8 +37,8 @@
     [self addRefreshFooter];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     detailModels = [DetailModel allObjects];
     self.data = [NSMutableArray array];
     for (NSInteger i=0; i<detailModels.count; i++) {

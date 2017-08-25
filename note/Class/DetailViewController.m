@@ -32,8 +32,8 @@
     [self addRefreshFooter];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     detailModels = [DetailModel allObjects];
     [self.myTable.mj_header beginRefreshing];
 }
